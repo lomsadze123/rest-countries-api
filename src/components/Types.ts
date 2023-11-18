@@ -1,4 +1,4 @@
-const Types = {
+const Type = {
   name: "Afghanistan",
   topLevelDomain: [".af"],
   alpha2Code: "AF",
@@ -71,6 +71,6 @@ const Types = {
   independent: true,
 };
 
-type Types = typeof Types;
+type Types = typeof Type;
 
 export default Types;

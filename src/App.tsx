@@ -1,6 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Types from "./components/Types";
+import Main from "./components/Main";
+import Header from "./components/Header";
+import Input from "./components/input";
+import Filter from "./components/Filter";
 
 const App = () => {
   const [data, setData] = useState<Types[] | null>(null);
@@ -18,16 +22,12 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center">
-      {data?.map((item) => (
-        <h1
-          key={item.numericCode}
-          className={`${item.name === "Georgia" && "text-red-500"}`}
-        >
-          {item.name}
-        </h1>
-      ))}
-    </div>
+    <>
+      <Header />
+      <Input />
+      <Filter />
+      <Main data={data} />
+    </>
   );
 };
 

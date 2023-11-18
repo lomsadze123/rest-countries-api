@@ -5,3 +5,19 @@
 body {
   background-color: #fafafa;
 }
+
+body,
+button {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1,
+h2 {
+  font-weight: 800;
+}
+h4 {
+  font-weight: 600;
+}
+p {
+  font-weight: 300;
+}
