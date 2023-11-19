@@ -12,6 +12,14 @@ export default {
       },
       colors: {
         almostBlack: "#111517;"
+      },
+      keyframes: {
+        wiggle: {
+          "to":{opacity:0.5}
+        },
+      },
+      animation: {
+        wiggle: "wiggle .8s ease infinite alternate "
       }
     },
   },

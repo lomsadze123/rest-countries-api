@@ -6,10 +6,10 @@ interface MainProps {
 
 const Main = ({ data }: MainProps) => {
   return (
-    <main className="min-h-screen flex flex-col gap-11 justify-center items-center md:flex-row flex-wrap md:items-center">
+    <main className="min-h-screen flex flex-wrap gap-11 lg:gap-20 justify-center md:px-[78px]">
       {data?.map((item) => (
         <div
-          className="shadow-custom rounded-[5px] max-w-[264px] h-[356px] bg-white cursor-pointer"
+          className="shadow-custom rounded-[5px] max-w-[264px] h-[356px] bg-white cursor-pointer hover:scale-110 ease-in-out duration-300"
           key={item.numericCode}
         >
           <div className="w-[267px] h-[170px]">
