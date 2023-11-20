@@ -1,9 +1,22 @@
 import { useState } from "react";
 import arrow from "../assets/arrow.svg";
 
-const Filter = () => {
-  const regionArray = ["Africa", "America", "Asia", "Europe", "Oceania"];
-  const [filterRegion, setFilterRegion] = useState("Filter by Region");
+const Filter = ({
+  filterRegion,
+  setFilterRegion,
+}: {
+  filterRegion: string;
+  setFilterRegion: (filterRegion: string) => void;
+}) => {
+  const regionArray = [
+    "All",
+    "Africa",
+    "Americas",
+    "Asia",
+    "Europe",
+    "Oceania",
+  ];
+
   const [click, setClick] = useState(false);
 
   return (

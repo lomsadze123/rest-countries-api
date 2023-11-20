@@ -15,7 +15,8 @@ h1,
 h2 {
   font-weight: 800;
 }
-h4 {
+h4,
+span {
   font-weight: 600;
 }
 h3 {
