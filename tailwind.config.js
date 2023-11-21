@@ -11,7 +11,8 @@ export default {
         customHeader: "0px 2px 4px 0px rgba(0, 0, 0, 0.06)"
       },
       colors: {
-        almostBlack: "#111517;"
+        almostBlack: "#111517;",
+        darkMode: "#2B3844"
       },
       keyframes: {
         wiggle: {

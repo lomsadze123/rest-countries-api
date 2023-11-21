@@ -5,9 +5,10 @@ export interface MainProps {
   data: Types[] | null;
   filterRegion?: string;
   search?: string;
+  mode?: string;
 }
 
-const Main = ({ data, filterRegion, search }: MainProps) => {
+const Main = ({ data, filterRegion, search, mode }: MainProps) => {
   if (search !== undefined)
     return (
       <main className="min-h-screen flex flex-wrap gap-11 lg:gap-20 justify-center md:px-[78px] pb-10">
@@ -18,7 +19,11 @@ const Main = ({ data, filterRegion, search }: MainProps) => {
               filterRegion === "All") &&
             item.name.toLowerCase().includes(search.toLowerCase()) && (
               <div
-                className="shadow-custom rounded-[5px] max-w-[264px] h-[356px] bg-white cursor-pointer hover:scale-110 ease-in-out duration-300"
+                className={`shadow-custom rounded-[5px] max-w-[267px] h-[356px] ${
+                  mode === "light"
+                    ? "bg-white text-almostBlack"
+                    : "bg-darkMode text-white"
+                } cursor-pointer hover:scale-110 ease-in-out duration-300`}
                 key={item.numericCode}
               >
                 <Link to={`/country/${item.alpha3Code}`}>
@@ -29,7 +34,7 @@ const Main = ({ data, filterRegion, search }: MainProps) => {
                       alt={item.name}
                     />
                   </div>
-                  <div className="pt-6 px-6 text-almostBlack text-sm">
+                  <div className="pt-6 px-6 text-sm">
                     <h1 className="mb-4 text-lg leading-5">{item.name}</h1>
                     <div className="flex flex-col gap-2">
                       <p>

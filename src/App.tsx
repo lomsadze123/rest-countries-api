@@ -14,6 +14,8 @@ const App = () => {
   const [data, setData] = useState<Types[] | null>(null);
   const [filterRegion, setFilterRegion] = useState("Filter by Region");
   const [search, setSearch] = useState("");
+  const [mode, setMode] = useState("light");
+  const storage = localStorage.getItem("mode");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,35 +31,54 @@ const App = () => {
       }
     };
     fetchData();
+    storage && setMode(storage);
   }, []);
 
-  return (
-    <>
-      <Header />
+  const handleMode = () => {
+    const updateMode = mode === "light" ? "dark" : "light";
+    localStorage.setItem("mode", updateMode);
+    setMode(updateMode);
+  };
 
+  return (
+    <div
+      className={`min-h-screen transition-background-color duration-300 ${
+        mode === "light" ? "bg-[#fafafa]" : "bg-[#202C36]"
+      }`}
+    >
+      <Header mode={mode} handleMode={handleMode} />
       <Routes>
         <Route
           path="/"
           element={
             <>
-              <div className="md:flex md:justify-between text-xs md:text-sm px-4 md:mb-12 xl:px-[128px]">
-                <Input setSearch={setSearch} />
+              <div className="md:flex md:justify-between text-xs md:text-sm px-4 md:mb-12 xl:px-[124px]">
+                <Input setSearch={setSearch} mode={mode} />
                 <Filter
                   filterRegion={filterRegion}
                   setFilterRegion={setFilterRegion}
+                  mode={mode}
                 />
               </div>
               {isLoading ? (
                 <Skeleton />
               ) : (
-                <Main data={data} filterRegion={filterRegion} search={search} />
+                <Main
+                  data={data}
+                  filterRegion={filterRegion}
+                  search={search}
+                  mode={mode}
+                />
               )}
             </>
           }
         />
-        <Route path="/country/:id" element={<RouteCountry data={data} />} />
+        <Route
+          path="/country/:id"
+          element={<RouteCountry data={data} mode={mode} />}
+        />
       </Routes>
-    </>
+    </div>
   );
 };
 

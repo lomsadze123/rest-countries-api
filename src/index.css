@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #fafafa;
-}
-
 body,
 button {
   font-family: "Nunito Sans", sans-serif;
