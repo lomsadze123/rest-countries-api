@@ -21,7 +21,7 @@ const App = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get("./data.json");
+        const response = await axios.get("data.json");
         setData(response.data);
       } catch (error) {
         setIsLoading(false);
