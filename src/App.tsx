@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Types from "./components/Types";
 import Main from "./components/Main";
 import Header from "./components/Header";
-import Input from "./components/Input";
+import Input from "./components/SearchInput";
 import Filter from "./components/Filter";
 import Skeleton from "./components/skeleton/Skeleton";
 import { Route, Routes } from "react-router-dom";
